@@ -43,6 +43,7 @@ class RandomItem extends Component {
         return nextProps.data !== this.props.data;
     }
     render() {
+        // 纯数据的方式可以避免少渲染
         console.log('rendering RandomItem');
         return (
             <View>
@@ -77,6 +78,8 @@ class KFlux extends Component {
     }
 
     addItem() {
+        // Dispatcher 用 nameSpace 来区分 dispather
+        // 返回一个 Promise,可以继续触发其他动作
         Dispatcher.dispatch({
             nameSpace: 'test',
             actionType: 'ADD_ITEM',
@@ -122,4 +125,5 @@ const styles = StyleSheet.create({
     },
 });
 
+// 用 Link 实现 Component 自动 setState,及state的设置
 AppRegistry.registerComponent('KFlux', () => Link(KFlux, store));

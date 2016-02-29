@@ -9,10 +9,13 @@ import store from './store';
 var dispather = Dispatcher.register('test', function(action){
         switch(action.actionType) {
             case 'CHANGE_PERSON':
+                // 手动触发 change 方法
                 store.changePerson(action.data);
                 store.emitChange();
                 break;
             case 'ADD_ITEM':
+                // 自动触发 change 方法
+                // 自动触发需要把所有数据传入
                 store.addItem(action.data);
                 break;
             default:
@@ -48,6 +51,7 @@ function logger2(next) {
     }
 }
 
+// 连接中间件
 Dispatcher.connect('dispatch', [logger1, logger2]);
 
 export default dispather
