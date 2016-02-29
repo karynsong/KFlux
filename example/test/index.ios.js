@@ -31,7 +31,7 @@ class Person extends Component {
                     age: {this.props.data.age}
                 </Text>
                 <Text style={styles.instructions} onPress={this.props.changePerson}>
-                    change Person
+                    press here change Person
                 </Text>
             </View>
         );
@@ -48,7 +48,7 @@ class RandomItem extends Component {
         return (
             <View>
                 <Text style={styles.welcome} onPress={this.props.addItem}>
-                    Add Item
+                    press here Add Item
                 </Text>
                 <ListView
                     dataSource={this.props.data.get('dataSource')}
